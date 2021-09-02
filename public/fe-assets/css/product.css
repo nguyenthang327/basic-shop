@@ -1,0 +1,124 @@
+.product-detail{
+    margin-top:160px;
+    margin-bottom: 80px;
+    min-height: 350px;
+}
+
+.image-product{
+    width: 100%;
+    padding-top: 100%;
+}
+
+.product-detail > .container{
+    width: 100%;
+    background-color: #fff;
+    height: auto;
+    border-radius: 2px;
+
+}
+
+.product-detail > .container >.row:nth-child(1),
+.product-detail > .container >.row:last-child{
+
+    padding: 32px 0;
+}
+
+.product-detail .product-detail__name{
+    font-size: 3.0rem;
+    font-family: 700;
+}
+
+.product-detail .product-detail__price{
+    margin: 18px 0;
+    padding: 8px 12px;
+    background-color: #f7f7f7;
+}
+
+.product-detail .product-detail__price-old{
+    font-size: 2.4rem;
+}
+
+.product-detail .product-detail__price-current{
+    font-size: 2.6rem;
+}
+
+
+
+.product-detail .btn{
+    padding: 0 12px;
+    font-size: 1.6rem;
+    margin: 26px 16px;
+}
+
+.btn-add-to-cart{
+    background-color: #ffeee8;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-buy{
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.product-detail .btn:hover{
+    opacity: 0.6;
+}
+
+.totalProduct{
+    font-size:1.6rem;
+    text-align: center;
+    padding-top:6px;
+    margin-left: 40px;
+}
+
+
+.product-detail .product-desc_heading{
+    font-size: 2.4rem;
+    padding-left:12px ;
+    color: rgba(0,0,0,.87);
+    background-color: #fafafa;
+
+}
+
+.product-detail .product-desc_content{
+    font-size: 1.6rem;
+    padding-left:12px ;
+
+    color: #9b9b9b;
+}
+
+.btn .btn-add-to-cart{
+    font-size: 1.8rem;
+    border-radius: 2px;
+}
+
+#toast{
+    position: fixed;
+    top: 122px; 
+    left: 40%;
+    display: none;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 2px;
+    border: 2px double #47d764;
+    background:rgb(214, 211, 211);
+}
+
+.toast__icon{
+    padding: 12px 0;
+    font-size: 4rem;
+    color:#47d764;
+}
+
+.toast__body .toast__title{
+    font-size: 2.6rem;
+    color:#47d764;
+
+}
+
+.toast__body .toast__msg{
+    font-size: 1.6rem;
+}

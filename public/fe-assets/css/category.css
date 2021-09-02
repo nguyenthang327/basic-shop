@@ -1,0 +1,52 @@
+.category-page{
+    position: inherit;
+    width: 100%;
+    top: 100%;
+    height: auto;
+    padding: 90px;
+    background-color: #f7f7f7;
+}
+
+.category-page .row{
+    background-color: #fff;
+}
+
+.category-page .row:first-child{
+    margin-top: 46px;
+}
+
+.category-page .row:nth-child(2){
+    margin-top: 26px;
+    padding-top: 14px;
+}
+
+.category-page .category-page-name{
+    font-size: 2.0rem;
+    color: #000;
+}
+
+.category-page .total-products-in-category-page{
+    font-size: 1.4rem;
+    color: #999;
+}
+
+#product_sort{
+    width: 200px;
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.category-page label{
+    font-size: 1.4rem;
+    color: #333;
+    margin-left: 8px;
+}
+
+.form-for-sort{
+   display: flex;
+   align-items: center;
+}
+
+.form-auto-submit{
+    padding: 8px 0;
+}
