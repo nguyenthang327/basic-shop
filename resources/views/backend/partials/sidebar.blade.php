@@ -15,7 +15,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{ url("/") }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Trang chủ VTH_Z</span></a>
     </li>
 
     <!-- Nav Item - Dashboard -->

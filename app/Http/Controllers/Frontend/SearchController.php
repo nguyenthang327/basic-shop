@@ -34,9 +34,9 @@ class SearchController extends Controller
         $keyword = strip_tags($keyword);
         if (strlen($keyword) > 0 && strlen($keyword) < 100) {
 
-            //$queryORM = ProductsModel::where('product_name', "LIKE", "%".$keyword."%");
-            //$products = $queryORM->paginate(10);     
-            $products = ProductsModel::where('product_name', "LIKE BINARY", "%".$keyword."%")->get();
+            $queryORM = ProductsModel::where('product_name', "LIKE", "%".$keyword."%");
+            $products = $queryORM->paginate(10);     
+           // $products = ProductsModel::where('product_name', "LIKE BINARY", "%".$keyword."%")->get();
 
         }  
         

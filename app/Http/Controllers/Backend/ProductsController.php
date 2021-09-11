@@ -21,20 +21,24 @@ class ProductsController extends Controller
 
         $queryORM = ProductsModel::where('product_name', "LIKE", "%".$searchKeyword."%");
 
+        if($productStatus != 0){
+            $queryORM = $queryORM->where('product_status', $productStatus);
+        }
+
         if($sort == 'price_asc'){
-            $queryORM->orderBy('price', 'asc');
+            $queryORM->orderBy('product_price', 'asc');
         }
 
         if($sort == 'price_desc'){
-            $queryORM->orderBy('price', 'desc');
+            $queryORM->orderBy('product_price', 'desc');
         }
 
         if($sort == 'quantity_asc'){
-            $queryORM->orderBy('quantity', 'asc');
+            $queryORM->orderBy('product_quantity', 'asc');
         }
 
         if($sort == 'quantity_desc'){
-            $queryORM->orderBy('quantity', 'desc');
+            $queryORM->orderBy('product_quantity', 'desc');
         }
 
         $products = $queryORM->paginate(10);

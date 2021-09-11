@@ -12,7 +12,7 @@
             </image>
 
             <div class="desc-form-logo">
-                VNSHOP
+                VTH_Z
             </div>
 
             <div class="slogan">

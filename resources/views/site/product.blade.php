@@ -14,7 +14,9 @@
                 <?php
                     $product->product_image = str_replace("public/", "",  $product->product_image);
                 ?>
-                <div class="image-product" style="background-image: url({{ asset("storage/$product->product_image") }}); background-size: contain; background-repeat: no-repeat; "></div>
+
+                <div class="image-product" style="background-image: url({{ asset("storage/$product->product_image") }}); background-size: contain; background-repeat: no-repeat; ">
+                </div>
                 
             </div>
 
@@ -31,7 +33,7 @@
 
                     <div class="product-detail__quantity-change">
                         <div class="pro-qty">
-                            <input name="quantity" type="text" value="1" data-allqtt="{{$product->product_quantity}}" class="qttPr">
+                            <input name="quantity" type="text" value="{{$product->product_quantity > 0 ? 1:0}}" data-allqtt="{{$product->product_quantity}}" class="qttPr">
                         </div>
                     </div>
 
@@ -45,7 +47,7 @@
                     @if(Auth::user())
                         <a href="#" class="btn btn-add-to-cart active" data-id="{{ $product->id }}" >Thêm vào giỏ hàng</a>
                     @else
-                    <a href="{{ url("/login") }}" class="btn btn-add-to-cart" data-id="{{ $product->id }}"  onclick="showSuccessToast()">Thêm vào giỏ hàng</a>
+                    <a href="{{ url("/login") }}" class="btn btn-add-to-cart" data-id="{{ $product->id }}"  >Thêm vào giỏ hàng</a>
                     @endif
                     
                     <a href="{{ url("/payment") }}" class="btn btn-buy" data-id = " {{ $product->id}}">Mua ngay</a>
@@ -85,7 +87,9 @@
 @section('appendJS')
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
+        
         $(function(){
             /*-------------------
                 Quantity change
@@ -129,7 +133,7 @@
 
                 quantity = parseInt(quantity);
 
-                if(id>0){
+                if(id>0 && quantity > 0){
                     $.ajax({
                         method: "POST",
                         url: "{{url('/cart/add')}}",
@@ -144,9 +148,12 @@
                             $('#toast').fadeOut(3000);
                         },2500)
                     });
+                }else if(quantity <= 0){
+                    alert("Sản phẩm này đã hết");
                 }else{
                     alert("Hệ thống gặp vấn đề vui lòng liên hệ với admin");
                 }
+                
 
             });
             
@@ -197,5 +204,6 @@
             });
         });
     </script>
+
 
 @endsecton

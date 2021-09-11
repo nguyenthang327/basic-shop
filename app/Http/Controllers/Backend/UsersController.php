@@ -15,7 +15,7 @@ class UsersController extends Controller
         $sort = $request->query('sort', "");
         $searchKeyword = $request->query('name', "");
 
-        $queryORM = DB::table("users")->where('name', "LIKE", "%".$searchKeyword."%")
+        $queryORM = User::where('name', "LIKE", "%".$searchKeyword."%")
                         ->where('is_admin',0);
 
         if ($sort == "name_asc") {
@@ -39,7 +39,7 @@ class UsersController extends Controller
     }
 
     public function delete($id) {
-        $user = DB::table("users")->findOrFail($id);
+        $user = User::findOrFail($id);
 
         // truyền dữ liệu xuống view
         $data = [];
@@ -50,7 +50,7 @@ class UsersController extends Controller
 
     public function destroy($id) {
 
-        $user = DB::table("users")->findOrFail($id);
+        $user = User::findOrFail($id);
         $user->delete();
 
         return redirect("/backend/users/index")->with('status', 'xóa user thành công !');

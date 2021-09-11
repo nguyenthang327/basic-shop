@@ -1,9 +1,9 @@
 @extends('backend.layouts.main')
 
-@section('title', 'Xóa admin')
+@section('title', 'Xóa users')
 
 @section('content')
-    <h1>Xóa admin</h1>
+    <h1>Xóa users</h1>
 
     @if (session('status'))
         <div class="alert alert-success">
@@ -21,23 +21,23 @@
         </div>
     @endif
 
-    <form name="admin" action="{{ url("/backend/admins/destroy/$admin->id") }}" method="post">
+    <form name="admin" action="{{ url("/backend/users/destroy/$user->id") }}" method="post">
 
         @csrf
 
         <div class="form-group">
-            <label for="product_name">ID admin:</label>
-            <p>{{ $admin->id }}</p>
+            <label for="product_name">ID user:</label>
+            <p>{{ $user->id }}</p>
         </div>
 
         <div class="form-group">
-            <label for="product_name">Tên admin:</label>
-            <p>{{ $admin->name }}</p>
+            <label for="product_name">Tên user:</label>
+            <p>{{ $user->name }}</p>
         </div>
 
         <div class="form-group">
-            <label for="product_name">Email admin:</label>
-            <p>{{ $admin->email }}</p>
+            <label for="product_name">Email user:</label>
+            <p>{{ $user->email }}</p>
         </div>
 
         <button type="submit" class="btn btn-danger">Xác nhận xóa!</button>

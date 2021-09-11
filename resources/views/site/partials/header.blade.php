@@ -47,6 +47,13 @@
                             </li>
                         @endif
                     @else
+
+                        @if (Auth::user()->is_admin == 1)
+                            <li class="navbar__list--item">
+                                <a href="{{ url('/admin/home')}}" class="navbar__list--item-link">Đến trang admin</a>
+                            </li>
+                        @endif
+
                         <li class="navbar__list--item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -77,7 +84,7 @@
                         <a href="{{ url('/')}}" class="header__logo-link">
                             <img src="{{ asset('fe-assets')}}/image/main-logo-edited.png" alt="" class="header__logo-image" style="width: 30%; height: auto;" >
 
-                            <span class="header__logo-text">VNSHOP</span>
+                            <span class="header__logo-text">VTH_Z</span>
                         </a>
                         
                     </div>

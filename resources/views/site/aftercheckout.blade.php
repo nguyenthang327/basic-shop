@@ -12,7 +12,7 @@
                 <h4>Thông tin</h4>
 
                 @if (session('status'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success" style="font-size:1.6rem">
                         {{ session('status') }}
                     </div>
                 @endif

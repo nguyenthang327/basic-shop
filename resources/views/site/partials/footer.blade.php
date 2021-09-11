@@ -111,7 +111,7 @@
 
             <div class="end-footer">
                 <span class="founder">
-                    © VN SHOP powered by: nguyenthang
+                    © VTH_Z powered by: nguyenthang
                 </span>
                 <span class="email-founder">
                     Email: nguyenducthang327@gmail.com
