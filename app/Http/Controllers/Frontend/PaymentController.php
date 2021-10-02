@@ -9,6 +9,7 @@ use App\Models\Backend\ProductsModel;
 use App\Models\Frontend\CartModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -47,6 +48,10 @@ class PaymentController extends Controller
     }
 
     public function checkout(Request $request){
+
+        $moneytotal = 0;
+        $product_name_to_send_mail = [];
+
         $validatedData = $request->validate([
             "customer_name" => 'required',
             "customer_email" => 'required',
@@ -80,6 +85,8 @@ class PaymentController extends Controller
             $product = ProductsModel::find($id);
             $totalPriceProduct = $quantity* ($product->product_price - $product->product_price * $product->product_sale / 100);
 
+            $product_name_to_send_mail[]=$product->product_name;
+
             $order->total_product += $quantity;
             $order->total_price += $totalPriceProduct;
 
@@ -87,6 +94,8 @@ class PaymentController extends Controller
             $product->save();
         }
 
+        $moneytotal = $order->total_price;
+        //dd($product_name_to_send_mail);
         $order->save();
 
         foreach($data["cart"] as $id => $valCart){
@@ -102,9 +111,20 @@ class PaymentController extends Controller
             $orderDetail->save();
         }
 
+        // send mail
+        $to_name = "thanghaui05112001@gmail.com";
+        $to_email = "$customer_email";
+
+        $data_email = array("name"=> "VTH_Z shop", "body"=>"Hàng hóa bạn đã order từ shop chúng tôi", "total"=>"$moneytotal","product_names"=>$product_name_to_send_mail);
+        Mail::send('site.send_mail.send_mail', $data_email , function($message) use($to_name,$to_email){
+            $message->to($to_email)->subject('Thông tin đơn hàng từ VTH_Z');
+            $message->from($to_name,$to_email);
+        });
+
+
         $cart->clearCart();
 
-        return redirect('/aftercheckout')->with('status', 'thêm đơn hàng thành công');
+        return redirect('/aftercheckout')->with('status', 'thêm đơn hàng thành công và được gửi đến mail của bạn');
     }
 
     public function aftercheckout(){

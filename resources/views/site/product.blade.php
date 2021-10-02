@@ -169,7 +169,7 @@
 
                 quantity = parseInt(quantity);
 
-                if(id>0){
+                if(id>0 && quantity > 0){
                     $.ajax({
                         method: "POST",
                         url: "{{url('/cart/add')}}",
@@ -179,7 +179,12 @@
                              _token:"{{ csrf_token()}}"
                         }
                     });
-                }else{
+                }else if(quantity <= 0){
+                    e.preventDefault();
+                    alert("Sản phẩm này đã hết");
+
+                }
+                else{
                     alert("Hệ thống gặp vấn đề vui lòng liên hệ với admin");
                 }
 

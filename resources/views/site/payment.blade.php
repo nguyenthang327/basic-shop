@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="checkout__input">
-                            <p>Địa chỉ<span>*</span></p>
+                            <p>Địa chỉ nhận hàng<span>*</span></p>
                             <input type="text" name="customer_address" placeholder="số nhà, xóm/ngõ, xã/phường, quận/huyện, tỉnh/thành phố" class="checkout__input__add">
                         </div>
 

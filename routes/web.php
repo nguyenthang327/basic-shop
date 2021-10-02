@@ -82,8 +82,6 @@ Route::get('login/facebook', [App\Http\Controllers\Auth\LoginController::class, 
 Route::get('login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 
 
-
-
 // backend category
 Route::get('backend/category/index' , [App\Http\Controllers\Backend\CategoryController::class, 'index'])->middleware('is_admin');
 Route::get('backend/category/create' , [App\Http\Controllers\Backend\CategoryController::class, 'create'])->middleware('is_admin');

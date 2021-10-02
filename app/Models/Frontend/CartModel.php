@@ -77,7 +77,6 @@ class CartModel extends Model
         session(['shopping_cart' => $shoppingCart]);
     }
 
-
     public function getTotalItem(){
         $total = 0;
 
